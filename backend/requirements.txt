@@ -4,6 +4,9 @@
 # Install everything with:  pip install -r requirements.txt
 # Then download the spaCy model: python -m spacy download en_core_web_sm
 
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+
 # --- Web Framework & Server ---
 fastapi
 uvicorn[standard]

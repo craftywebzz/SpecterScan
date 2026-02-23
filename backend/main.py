@@ -1,7 +1,11 @@
 import os
 import io
 import logging
+import torch
 from contextlib import asynccontextmanager
+
+# Constrain PyTorch to use 1 thread to avoid memory spikes on small VMs
+torch.set_num_threads(1)
 
 import joblib                     
 import spacy                   
