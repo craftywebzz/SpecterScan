@@ -308,6 +308,11 @@ def analyze_contract(file: UploadFile = File(...)):
 
 
 
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # When deployed on Render, it injects a PORT environment variable
+    port = int(os.environ.get("PORT", 8000))
+    # reload=True is normally not recommended for production, 
+    # but Render handles restarts anyway. Safer to turn it off.
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
